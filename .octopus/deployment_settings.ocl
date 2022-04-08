@@ -8,6 +8,13 @@ release_notes_template = <<-EOT
         #{each workItem in package.WorkItems}
             - [#{workItem.Id}](#{workItem.LinkUrl}) - #{workItem.Description}
         #{/each}
+        #{each workItem in package.WorkItems}
+            - [#{workItem.Id}](#{workItem.LinkUrl}) - #{workItem.Description}
+        #{/each}
+        #{each branch in Octopus.Release.Git}
+            - [#{branch .BranchName}](#{branch.Ref})
+        #{/each}
+        
         #{/each}
     EOT
 
